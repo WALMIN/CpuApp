@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ActivityIndicator, FlatList } from 'react-native';
+import ListItem from "./components/ListItem";
 
 export default function App() {
   const [isLoading, setLoading] = useState(true);
@@ -33,10 +34,7 @@ export default function App() {
             data={data}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => (
-              <View style={styles.item}>
-                <Text style={styles.title}>{item.name}</Text>
-                <Text style={styles.text}>{item.summary}</Text>
-              </View>
+              <ListItem name={item.name} summary={item.summary} />
             )}
           />
         </View>
@@ -53,24 +51,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2vmin'
-  },
-  item: {
-    padding: '1vmin',
-    marginTop: "0.5vmin",
-    flexDirection: "row",
-    textAlign: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#f2f2f2",
-    borderRadius: "0.5vmin"
-  },
-  title: {
-    fontWeight: 'bold',
-    padding: 0,
-    margin: 0
-  },
-  text: {
-    fontWeight: 'normal',
-    padding: 0,
-    margin: 0
   }
 });
