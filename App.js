@@ -34,7 +34,7 @@ export default function App() {
             data={data}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => (
-              <ListItem name={item.name} summary={item.summary} />
+              <ListItem name={item.name} summary={item.summary} url={item.url} />
             )}
           />
         </View>

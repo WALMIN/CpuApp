@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import LinkButton from "./LinkButton";
 
 const ListItem = (props) => {
   return (
@@ -8,6 +9,7 @@ const ListItem = (props) => {
         <Text style={styles.title}>{props.name}</Text>
         <Text style={styles.text}>{props.summary}</Text>
       </View>
+      <LinkButton url={"https://polisen.se" + props.url} />
     </View>
   );
 }
