@@ -15,10 +15,10 @@ const SearchView = (props) => {
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    padding: '1vmin',
-    borderWidth: "0.25vmin",
+    padding: 5,
+    borderWidth: 2.5,
     borderColor: "#f2f2f2",
-    borderRadius: "0.5vmin"
+    borderRadius: 5
   }
 });
 

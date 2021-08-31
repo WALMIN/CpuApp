@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, ActivityIndicator, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
 import ListItem from "./components/ListItem";
 import SearchView from "./components/SearchView";
+import LoadingView from "./components/LoadingView";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -31,8 +32,10 @@ export default function App() {
 
   return (
     <ScrollView removeClippedSubviews={false} style={styles.container}>
-        {isLoading ? <ActivityIndicator/> : (
-          <View>
+        {isLoading ?
+          <LoadingView />
+          :
+          (<View>
             <SearchView input={search} onChange={setSearch} />
             <FlatList
               data={data.filter((item) => {
@@ -53,8 +56,7 @@ export default function App() {
                 <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
               )}
             />
-          </View>
-        )}
+          </View>)}
       <StatusBar style="auto" />
     </ScrollView>
   );
@@ -62,6 +64,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: '2vmin'
   }
 });

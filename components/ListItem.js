@@ -36,13 +36,14 @@ const ListItem = (props) => {
 
 const styles = StyleSheet.create({
   item: {
-    padding: '1vmin',
-    marginTop: "0.5vmin",
+    padding: 5,
+    marginTop: 3,
     flexDirection: "row",
     textAlign: "center",
     justifyContent: "space-between",
+    alignItems: "center",
     backgroundColor: "#f2f2f2",
-    borderRadius: 0.5
+    borderRadius: 5
   },
   title: {
     fontWeight: 'bold',
