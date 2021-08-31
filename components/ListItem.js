@@ -8,8 +8,8 @@ const ListItem = (props) => {
     const supported = await Linking.canOpenURL(props.url);
 
     if (supported) {
-      if(Platform.OS == 'web') {
-        window.open(props.url, '_blank');
+      if(Platform.OS == "web") {
+        window.open(props.url, "_blank");
 
       } else {
         await Linking.openURL(props.url);
@@ -17,7 +17,7 @@ const ListItem = (props) => {
       }
 
     } else {
-      Alert.alert(`Error opening this URL: ${props.url}`);
+      Alert.alert("Error opening this URL: ${props.url}");
 
     }
 

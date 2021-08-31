@@ -3,8 +3,11 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ActivityIndicator, ScrollView, FlatList } from 'react-native';
 import ListItem from "./components/ListItem";
+import SearchView from "./components/SearchView";
 
 export default function App() {
+  const [search, setSearch] = useState("");
+
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -27,31 +30,38 @@ export default function App() {
   useEffect(() => { getData(); }, []);
 
   return (
-    <View style={styles.container}>
-      <ScrollView removeClippedSubviews={false}>
+    <ScrollView removeClippedSubviews={false} style={styles.container}>
         {isLoading ? <ActivityIndicator/> : (
           <View>
+            <SearchView input={search} onChange={setSearch} />
             <FlatList
-              data={data}
+              data={data.filter((item) => {
+                if(search === ""){
+                  return item
+
+                }else if(item.name.toLowerCase().includes(search.toLowerCase()) || item.summary.toLowerCase().includes(search.toLowerCase())){
+                  return item
+
+                } else {
+                  return null
+
+                }
+
+              })}
               keyExtractor={({ id }, index) => id}
               renderItem={({ item }) => (
                 <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
               )}
             />
           </View>
-          )}
-      </ScrollView>
+        )}
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
     padding: '2vmin'
   }
 });
