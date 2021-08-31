@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, ActivityIndicator, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, ScrollView, FlatList } from 'react-native';
 import ListItem from "./components/ListItem";
 
 export default function App() {
@@ -28,18 +28,20 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {isLoading ? <ActivityIndicator/> : (
-        <View>
-          <FlatList
-            data={data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
-            )}
-          />
-        </View>
-        )}
-        <StatusBar style="auto" />
+      <ScrollView removeClippedSubviews={false}>
+        {isLoading ? <ActivityIndicator/> : (
+          <View>
+            <FlatList
+              data={data}
+              keyExtractor={({ id }, index) => id}
+              renderItem={({ item }) => (
+                <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
+              )}
+            />
+          </View>
+          )}
+      </ScrollView>
+      <StatusBar style="auto" />
     </View>
   );
 }
