@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Cpu App",
-    "slug": "CpuApp",
+    "name": "Polisens aktuella händelser",
+    "slug": "PolisensAktuellaHandelser",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

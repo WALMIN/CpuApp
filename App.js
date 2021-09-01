@@ -10,6 +10,8 @@ import ErrorView from "./components/ErrorView";
 import TopItemContext, { TopItemProvider } from "./contexts/TopItemContext";
 
 export default function App() {
+  useEffect(() => { document.title = "Polisens aktuella händelser" }, []);
+
   const [search, setSearch] = useState("");
 
   const [isLoading, setLoading] = useState(true);
