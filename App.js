@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
 import ListItem from "./components/ListItem";
 import SearchView from "./components/SearchView";
 import LoadingView from "./components/LoadingView";
+import ErrorView from "./components/ErrorView";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -32,31 +33,42 @@ export default function App() {
 
   return (
     <ScrollView removeClippedSubviews={false} style={styles.container}>
-        {isLoading ?
+        {
+          isLoading ?
           <LoadingView />
           :
-          (<View>
-            <SearchView input={search} onChange={setSearch} />
-            <FlatList
-              data={data.filter((item) => {
-                if(search === ""){
-                  return item
+          (
+            <View>
+            {
+              (data.length > 0) ?
+                <View>
+                  <SearchView input={search} onChange={setSearch} />
+                  <FlatList
+                    data={data.filter((item) => {
+                      if(search === ""){
+                        return item
 
-                }else if(item.name.toLowerCase().includes(search.toLowerCase()) || item.summary.toLowerCase().includes(search.toLowerCase())){
-                  return item
+                      }else if(item.name.toLowerCase().includes(search.toLowerCase()) || item.summary.toLowerCase().includes(search.toLowerCase())){
+                        return item
 
-                } else {
-                  return null
+                      } else {
+                        return null
 
-                }
+                      }
 
-              })}
-              keyExtractor={({ id }, index) => id}
-              renderItem={({ item }) => (
-                <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
-              )}
-            />
-          </View>)}
+                    })}
+                    keyExtractor={({ id }, index) => id}
+                    renderItem={({ item }) => (
+                      <ListItem name={item.name} summary={item.summary} url={"https://polisen.se" + item.url} />
+                    )}
+                  />
+                </View>
+                :
+                <ErrorView />
+            }
+            </View>
+          )
+        }
       <StatusBar style="auto" />
     </ScrollView>
   );

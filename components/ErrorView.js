@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, Image, ActivityIndicator } from 'react-native';
+import logo from "../assets/error.png"
 
-const LoadingView = () => {
+const ErrorView = () => {
   return(
     <View style={styles.container}>
-      <ActivityIndicator size="large" style={styles.loading} />
-      <Text>Laddar in aktuella händelser...</Text>
+      <Image source={logo} style={styles.logo} />
+      <Text>Ett problem uppstod, testa igen!</Text>
     </View>
   );
 
@@ -18,10 +19,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  loading: {
+  logo: {
     width: 128,
     height: 128
   }
 });
 
-export default LoadingView;
+export default ErrorView;
