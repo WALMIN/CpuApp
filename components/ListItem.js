@@ -46,11 +46,13 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   title: {
+    fontSize: 16,
     fontWeight: 'bold',
     padding: 0,
     margin: 0
   },
   text: {
+    fontSize: 16,
     fontWeight: 'normal',
     padding: 0,
     margin: 0

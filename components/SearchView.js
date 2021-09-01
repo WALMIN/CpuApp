@@ -7,7 +7,7 @@ const SearchView = (props) => {
       style={styles.input}
       onChangeText={props.onChange}
       value={props.input}
-      placeholder="Sök..." />
+      placeholder="Sök efter händelse..." />
   );
 
 }
@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     padding: 5,
     borderWidth: 2.5,
     borderColor: "#f2f2f2",
-    borderRadius: 5
+    borderRadius: 5,
+    marginTop: 3
   }
 });
 

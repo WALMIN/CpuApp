@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, ActivityIndicator } from 'react-native';
-import logo from "../assets/error.png"
+import logo from "../assets/error.png";
 
 const ErrorView = () => {
   return(
