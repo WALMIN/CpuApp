@@ -1,13 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
+import TopItemContext, { TopItemProvider } from "./contexts/TopItemContext";
+import { StatusBar } from 'expo-status-bar';
 import ListItem from "./components/ListItem";
 import SearchView from "./components/SearchView";
 import TopItem from "./components/TopItem";
 import LoadingView from "./components/LoadingView";
 import ErrorView from "./components/ErrorView";
-import TopItemContext, { TopItemProvider } from "./contexts/TopItemContext";
 
 export default function App() {
   useEffect(() => { document.title = "Polisens aktuella händelser" }, []);

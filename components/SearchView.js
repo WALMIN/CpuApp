@@ -14,12 +14,13 @@ const SearchView = (props) => {
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    padding: 5,
+    height: 48,
+    padding: 8,
     borderWidth: 2.5,
     borderColor: "#f2f2f2",
     borderRadius: 5,
-    marginTop: 3
+    marginTop: 3,
+    fontSize: 16
   }
 });
 

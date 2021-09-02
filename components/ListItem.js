@@ -25,7 +25,7 @@ const ListItem = (props) => {
 
   return (
     <View style={styles.item}>
-      <View style={{textAlign: "left"}}>
+      <View style={styles.innerItem}>
         <Text style={styles.title}>{props.name}</Text>
         <Text style={styles.text}>{props.summary}</Text>
       </View>
@@ -36,7 +36,7 @@ const ListItem = (props) => {
 
 const styles = StyleSheet.create({
   item: {
-    padding: 5,
+    padding: 8,
     marginTop: 3,
     flexDirection: "row",
     textAlign: "center",
@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#f2f2f2",
     borderRadius: 5
+  },
+  innerItem: {
+    flex: 1,
+    marginRight: 3,
+    textAlign: "left"
   },
   title: {
     fontSize: 16,

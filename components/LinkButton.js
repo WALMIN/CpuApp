@@ -12,13 +12,12 @@ const LinkButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: "5vmin",
-    height: "5vmin",
+    width: 40,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#e5e5e5",
-    borderRadius: 4,
-    cursor: "pointer"
+    borderRadius: 4
   }
 });
 
